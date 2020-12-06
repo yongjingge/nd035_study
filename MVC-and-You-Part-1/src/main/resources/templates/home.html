@@ -6,6 +6,7 @@
 </head>
 <body>
 <!--    <h1>Hello, homepage!</h1>-->
-    <h1 th:text="${welcomeMessage}"></h1>
+<!--    <h1 th:text="${welcomeMessage}"></h1>-->
+<h1 th:each="msg: ${greetings}" th:text="${msg}" th:if="${msg.contains('There')}"></h1>
 </body>
 </html>
