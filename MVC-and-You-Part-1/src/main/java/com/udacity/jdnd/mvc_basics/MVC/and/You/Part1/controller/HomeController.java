@@ -14,4 +14,10 @@ public class HomeController {
         model.addAttribute("greetings", new String[] {"Hi", "Hello", "There"});
         return "home";
     }
+
+    @RequestMapping("/simplehome")
+    public String getSimpleHome (Model model) {
+        model.addAttribute("firstVisit", "true");
+        return "simplehome";
+    }
 }
