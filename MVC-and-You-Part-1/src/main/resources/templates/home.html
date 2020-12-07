@@ -7,6 +7,14 @@
 <body>
 <!--    <h1>Hello, homepage!</h1>-->
 <!--    <h1 th:text="${welcomeMessage}"></h1>-->
-<h1 th:each="msg: ${greetings}" th:text="${msg}" th:if="${msg.contains('There')}"></h1>
+<form th:object="${newMessage}" th:action="@{/home}" action="#" method="POST">
+<!--    by adding th:field element to the input tag, we can tell Thymeleaf to put the User Input from this element, into the form object ${newMessage}}. -->
+<!--    a th:field selection like this, we use * instead of $. -->
+    <label for="newMessageText">Submit a new message: </label>
+    <input th:field="*{text}" type="text" id="newMessageText">
+    <input type="submit">
+</form>
+
+<h1 th:each="msg: ${greetings}" th:text="${msg}" th:unless="${msg.contains('There')}">hello homepage!</h1>
 </body>
 </html>
