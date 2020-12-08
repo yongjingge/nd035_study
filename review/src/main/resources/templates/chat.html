@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chat</title>
+</head>
+<body>
+<!--a form that allows users to submit their username, the message text they'd like
+to send to the chat, and the message mode -->
+<form th:action="@{'/chat'}" th:object="${chatForm}" action="#" method="POST">
+    <label for="username">Username: </label>
+    <input th:field="*{name}" type="text" id="username">
+    <label for="messageText">Message Text: </label>
+    <input th:field="*{text}" type="text" id="messageText">
+    <label for="messageType">Message Type: </label>
+    <select th:field="*{type}" name="" id="messageType">
+        <option th:each="type: ${allTypes}" th:value="${type}" th:text="${type}" value="">Say</option>
+<!--        <option th:each="type: ${allTypes}" th:value="${type}" selected value="">Say</option>-->
+<!--        <option th:each="type: ${allTypes}" th:value="${type}" value="">Shout</option>-->
+<!--        <option th:each="type: ${allTypes}" th:value="${type}" value="">Whisper</option>-->
+    </select>
+    <input type="submit">
+</form>
+
+<div th:each="chatMessage: ${chatMessages}">
+    <span th:text="${chatMessage.name}">Username: </span> :
+    <span th:text="${chatMessage.message}"></span>
+</div>
+</body>
+</html>
