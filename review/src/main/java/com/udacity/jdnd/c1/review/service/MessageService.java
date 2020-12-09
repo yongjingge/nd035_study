@@ -49,15 +49,6 @@ public class MessageService {
                 chat.setMessage(chatForm.getText().toLowerCase());
                 break;
         }
-
-
-//        if (chatForm.getType() == "Say") {
-//            chat.setMessage(chatForm.getText());
-//        } else if (chatForm.getType() == "Shout") {
-//            chat.setMessage(chatForm.getText().toUpperCase());
-//        } else {
-//            chat.setMessage(chatForm.getText().toLowerCase());
-//        }
         this.chatMessages.add(chat);
     }
 

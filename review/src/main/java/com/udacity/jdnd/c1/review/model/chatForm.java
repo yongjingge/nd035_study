@@ -23,11 +23,11 @@ public class chatForm {
     }
 
     public String getName () {
-        return this.name;
+        return name;
     }
 
     public String getText () {
-        return this.text;
+        return text;
     }
     public String getType () {
         return type;
