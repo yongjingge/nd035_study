@@ -1,4 +1,4 @@
-package com.udacity.course2.lab1.DogRestApi.service;
+package com.udacity.course2.lab1.DogRestApi.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
