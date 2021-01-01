@@ -9,6 +9,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableEurekaClient
 public class DogMicroserviceApplication {
 
+//	Run together with Eureka Server to get itself registered!
 	public static void main(String[] args) {
 		SpringApplication.run(DogMicroserviceApplication.class, args);
 	}
