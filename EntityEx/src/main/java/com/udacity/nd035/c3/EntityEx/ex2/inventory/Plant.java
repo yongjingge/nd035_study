@@ -1,5 +1,7 @@
 package com.udacity.nd035.c3.EntityEx.ex2.inventory;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.udacity.nd035.c3.EntityEx.ex2.controller.Views;
 import com.udacity.nd035.c3.EntityEx.ex2.delivery.Delivery;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,10 +21,12 @@ public class Plant {
 
     @Getter @Setter
     @Nationalized
+    @JsonView(Views.class)
     private String name;
 
     @Getter @Setter
     @Column(precision = 12, scale = 4)
+    @JsonView(Views.class)
     private BigDecimal price;
 
     @ManyToOne

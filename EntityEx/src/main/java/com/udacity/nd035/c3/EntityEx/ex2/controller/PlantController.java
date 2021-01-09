@@ -1,5 +1,6 @@
 package com.udacity.nd035.c3.EntityEx.ex2.controller;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.udacity.nd035.c3.EntityEx.ex2.inventory.Plant;
 import com.udacity.nd035.c3.EntityEx.ex2.service.PlantService;
 import org.springframework.beans.BeanUtils;
@@ -22,6 +23,7 @@ public class PlantController {
     }
 
     // returns a Plant Entity instance
+    @JsonView(Views.class)
     public Plant getFilterPlant (String name) {
         return plantService.getPlantByName(name);
     }
