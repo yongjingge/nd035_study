@@ -29,7 +29,7 @@ public class Plant {
     @JsonView(Views.class)
     private BigDecimal price;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "delivery_id")
     @Getter @Setter
     private Delivery delivery;

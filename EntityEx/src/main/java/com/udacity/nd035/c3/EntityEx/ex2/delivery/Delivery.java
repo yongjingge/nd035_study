@@ -34,7 +34,7 @@ public class Delivery {
     @Getter @Setter
     private boolean deliveryCompleted;
 
-    @OneToMany(mappedBy = "delivery", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "delivery", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @Getter @Setter
     private List<Plant> plants;
 }
