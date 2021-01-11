@@ -12,11 +12,16 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@NamedQuery(
+        name = "Delivery.findByName",
+        query = "select d from Delivery where d.recipientName = :recipientName"
+)
 @Entity
 public class Delivery {
 
     @Id
     @GeneratedValue
+    @Getter @Setter
     private Long id;
 
     @Nationalized
@@ -34,7 +39,10 @@ public class Delivery {
     @Getter @Setter
     private boolean deliveryCompleted;
 
-    @OneToMany(mappedBy = "delivery", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    // CascadeType.REMOVE -- Repository delete method (for EntityManager.remove)
+    // CascadeType.ALL -- to make it easier for us to persist everything at once for testing.
+    @OneToMany(mappedBy = "delivery", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @Getter @Setter
     private List<Plant> plants;
+
 }
