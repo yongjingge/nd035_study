@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "plant")
-public class Flower {
+public class FlowerEntityEx1 {
 
     @Id
     @GeneratedValue

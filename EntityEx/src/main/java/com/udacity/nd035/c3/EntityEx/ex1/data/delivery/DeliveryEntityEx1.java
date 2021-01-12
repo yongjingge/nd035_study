@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 
 
 @Entity
-public class Delivery {
+public class DeliveryEntityEx1 {
 
     @Id
     @GeneratedValue
