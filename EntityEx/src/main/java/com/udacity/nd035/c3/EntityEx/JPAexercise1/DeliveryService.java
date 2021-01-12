@@ -15,4 +15,8 @@ public class DeliveryService {
         deliveryRepository.persist(delivery);
         return delivery.getId();
     }
+
+    public RecipientAndPriceDTO getBill (Long deliveryId) {
+        return deliveryRepository.findRecipientNameAndPrice(deliveryId);
+    }
 }

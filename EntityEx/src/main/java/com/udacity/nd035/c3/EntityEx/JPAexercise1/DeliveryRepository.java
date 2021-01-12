@@ -47,7 +47,7 @@ public class DeliveryRepository implements DeliveryRepositoryInterface {
         return query.getResultList();
     }
 
-    // use CriteriaBuilder
+    // use CriteriaBuilder for query
     public RecipientAndPriceDTO findRecipientNameAndPrice (Long id) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         // creating a CriteriaQuery for returning a RecipientAndPriceDTO object

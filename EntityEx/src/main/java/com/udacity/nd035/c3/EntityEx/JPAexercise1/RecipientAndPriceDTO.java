@@ -5,6 +5,9 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 
+/**
+ * projection class
+ */
 @Getter @Setter
 public class RecipientAndPriceDTO {
 
