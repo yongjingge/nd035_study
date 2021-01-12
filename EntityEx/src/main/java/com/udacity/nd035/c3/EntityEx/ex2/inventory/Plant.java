@@ -17,6 +17,7 @@ public class Plant {
 
     @Id
     @GeneratedValue
+    @Getter @Setter
     private Long id;
 
     @Getter @Setter

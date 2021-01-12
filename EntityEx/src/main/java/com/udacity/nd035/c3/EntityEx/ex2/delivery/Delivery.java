@@ -37,7 +37,7 @@ public class Delivery {
 
     @Type(type = "yes_no")
     @Getter @Setter
-    private boolean deliveryCompleted;
+    private boolean deliveryCompleted = true;
 
     // CascadeType.REMOVE -- Repository delete method (for EntityManager.remove)
     // CascadeType.ALL -- to make it easier for us to persist everything at once for testing.

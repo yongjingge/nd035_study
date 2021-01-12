@@ -5,8 +5,13 @@ import com.udacity.nd035.c3.EntityEx.ex2.inventory.Plant;
 import com.udacity.nd035.c3.EntityEx.ex2.service.PlantService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 @RestController
 @RequestMapping("/plant")
@@ -39,5 +44,16 @@ public class PlantController {
         Plant plant = new Plant();
         BeanUtils.copyProperties(plantDTO, plant);
         return plant;
+    }
+
+    @GetMapping("/delivered/{plantId}")
+    public Boolean isDelivered (@PathVariable("plantId") Long plantId) {
+        return plantService.isDelivered(plantId);
+    }
+
+    @GetMapping("/lessthan/{price}")
+    @JsonView(Views.class)
+    public List<Plant> getPlantsPriceLessThan (@PathVariable("price") BigDecimal price) {
+        return plantService.plantCheaperThan(price);
     }
 }

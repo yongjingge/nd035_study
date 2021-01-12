@@ -1,4 +1,4 @@
-package com.udacity.nd035.c3.EntityEx.JPAexercise1;
+package com.udacity.nd035.c3.EntityEx.JPAexercise;
 
 import com.udacity.nd035.c3.EntityEx.ex2.delivery.Delivery;
 import com.udacity.nd035.c3.EntityEx.ex2.inventory.Plant;
