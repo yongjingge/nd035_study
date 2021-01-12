@@ -1,11 +1,15 @@
 package com.udacity.nd035.c3.EntityEx.JPAexercise1;
 
 import com.udacity.nd035.c3.EntityEx.ex2.delivery.Delivery;
+import com.udacity.nd035.c3.EntityEx.ex2.inventory.Plant;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -43,4 +47,23 @@ public class DeliveryRepository implements DeliveryRepositoryInterface {
         return query.getResultList();
     }
 
+    // use CriteriaBuilder
+    public RecipientAndPriceDTO findRecipientNameAndPrice (Long id) {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        // creating a CriteriaQuery for returning a RecipientAndPriceDTO object
+        CriteriaQuery<RecipientAndPriceDTO> criteria = criteriaBuilder.createQuery(RecipientAndPriceDTO.class);
+        // get price and delivery_id from Plant.class, setting root as from Plant
+        Root<Plant> root = criteria.from(Plant.class);
+
+        criteria.select(
+                criteriaBuilder.construct(
+                        RecipientAndPriceDTO.class,
+                        // get Plant.getDelivery().getId()
+                        root.get("delivery").get("recipientName"),
+                        criteriaBuilder.sum(root.get("price"))
+                )
+        ).where(criteriaBuilder.equal(root.get("delivery").get("id"), id));
+
+        return entityManager.createQuery(criteria).getSingleResult();
+    }
 }
