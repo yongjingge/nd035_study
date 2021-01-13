@@ -17,7 +17,7 @@ public interface PlantRepository extends JpaRepository<Plant, Long> {
 
     // above can also be written in this way
     // in the plantService, it will be referenced like [return plantRepository.existsPlantByIdAndDeliveryCompleted(id, true);]
-    Boolean existsPlantByIdAndDeliveryCompleted (Long id, Boolean delivered);
+    // Boolean existsPlantByIdAndDeliveryCompleted (Long id, Boolean delivered);
 
     // referencing associations and attributes by chaining
     List<Plant> findPlantsByPriceLessThan (BigDecimal price);
