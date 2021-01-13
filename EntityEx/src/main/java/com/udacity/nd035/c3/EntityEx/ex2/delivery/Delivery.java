@@ -14,7 +14,7 @@ import java.util.List;
 
 @NamedQuery(
         name = "Delivery.findByName",
-        query = "select d from Delivery where d.recipientName = :recipientName"
+        query = "select d from Delivery d where d.recipientName = :recipientName"
 )
 @Entity
 public class Delivery {
