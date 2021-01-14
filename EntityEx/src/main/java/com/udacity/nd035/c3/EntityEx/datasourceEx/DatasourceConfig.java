@@ -15,14 +15,16 @@ public class DatasourceConfig {
 
     @Bean
     @Primary
-    @ConfigurationProperties("com.udacity.datasource")
+    // @ConfigurationProperties("com.udacity.datasource")
+    @ConfigurationProperties("spring.datasource")
     public DataSourceProperties getDataSourceProperties () {
         return new DataSourceProperties();
     }
 
     @Bean
     @Primary
-    @ConfigurationProperties(prefix = "com.udacity.datasource.configuration")
+    // @ConfigurationProperties(prefix = "com.udacity.datasource.configuration")
+    @ConfigurationProperties(prefix = "spring.datasource.configuration")
     public DataSource getDataSource (DataSourceProperties dataSourceProperties) {
         return dataSourceProperties.initializeDataSourceBuilder().type(HikariDataSource.class).build();
     }
