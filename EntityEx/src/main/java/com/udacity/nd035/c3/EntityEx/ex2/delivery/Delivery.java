@@ -37,7 +37,7 @@ public class Delivery {
 
     @Type(type = "yes_no")
     @Getter @Setter
-    private boolean deliveryCompleted = true;
+    private boolean deliveryCompleted = false;
 
     // CascadeType.REMOVE -- Repository delete method (for EntityManager.remove)
     // CascadeType.ALL -- to make it easier for us to persist everything at once for testing.
@@ -45,4 +45,14 @@ public class Delivery {
     @Getter @Setter
     private List<Plant> plants;
 
+    // constructor for testing
+
+    public Delivery() {
+    }
+
+    public Delivery(String recipientName, String address, LocalDateTime deliveryTime) {
+        this.recipientName = recipientName;
+        this.address = address;
+        this.deliveryTime = deliveryTime;
+    }
 }

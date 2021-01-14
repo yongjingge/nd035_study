@@ -35,4 +35,18 @@ public class Plant {
     @Getter @Setter
     private Delivery delivery;
 
+    // constructor for testing
+    public Plant(String name, BigDecimal price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public Plant() {
+    }
+
+    public Plant(String name, BigDecimal price, Delivery delivery) {
+        this.name = name;
+        this.price = price;
+        this.delivery = delivery;
+    }
 }
